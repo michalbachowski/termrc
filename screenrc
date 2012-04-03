@@ -1,0 +1,29 @@
+defflow auto
+
+# Scrollback buffer size in lines
+defscrollback 5000
+
+# Support alternate screens so that, for example, when you
+# quit out of vi, the display is redrawn as it was before vi
+# redrew the full screen.
+altscreen on
+
+# don't display the copyright page
+startup_message off
+
+# detach on hangup - if my dial-up session fails, screen will simply
+# detach and let me re re-attach later.
+autodetach on
+nonblock on
+msgwait 2 # 1 second messages
+
+# Window list at the bottom.
+hardstatus alwayslastline
+hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %m/%d %c ]%{W}'     
+
+# remove some stupid / dangerous key bindings
+#make them better
+bind 'K' kill
+bind 'W' windowlist
+bindkey -k F1 prev
+bindkey -k F2 next
