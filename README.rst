@@ -2,7 +2,7 @@ termrc
 ======
 
 my repository of default terminal-related config files
-(currently.bashrc and .screenrc)
+(currently.bashrc, .screenrc and tmux.conf)
 
 Installation
 ------------
@@ -11,7 +11,7 @@ Simply clone vimper repository somewhere and run::
 
     $ /bin/bash init.sh
 
-This would remove existing .bashrc and .screenrc and put symlinks to new one.
+This would remove existing .bashrc, .screenrc and tmux.conf and put symlinks to new one.
 
 Want an one liner?
 
