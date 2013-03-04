@@ -15,4 +15,4 @@ This would remove existing .bashrc, .screenrc and tmux.conf and put symlinks to 
 
 Want an one liner?
 
-    git clone git://github.com/michalbachowski/termrc.git ~/termrc && cd ~/termrc && /bin/bash init.sh
+    git clone git://github.com/michalbachowski/termrc.git ~/.termrc && cd ~/.termrc && /bin/bash init.sh
