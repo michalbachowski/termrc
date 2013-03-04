@@ -27,3 +27,12 @@ bind 'K' kill
 bind 'W' windowlist
 bindkey -k F1 prev
 bindkey -k F2 next
+
+screen bash
+title "code"
+
+screen bash
+title "tests"
+
+screen bash
+title "testrunner"
