@@ -8,6 +8,10 @@ fi
 export TERM=xterm-256color
 export PSQL_EDITOR=/usr/bin/vim
 
+if [ -d /usr/local/bin ]; then
+    export PATH=$PATH":/usr/local/bin"
+fi
+
 GIT_PS1_SHOWDIRTYSTATE=true
 
 function PWD {
