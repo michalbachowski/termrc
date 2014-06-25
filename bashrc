@@ -23,7 +23,7 @@ if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
 fi
 
-if command -v foo >/dev/null 2>&1 && [ -f `brew --prefix`/etc/bash_completion ]; then
+if command -v brew >/dev/null 2>&1 && [ -f `brew --prefix`/etc/bash_completion ]; then
     source `brew --prefix`/etc/bash_completion
 fi
 
