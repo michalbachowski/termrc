@@ -10,14 +10,18 @@ export EDITOR=/usr/bin/vim
 export PSQL_EDITOR=$EDITOR
 
 if [ -d /usr/local/bin ]; then
-    export PATH=$PATH":/usr/local/bin"
+    export PATH=$PATH:/usr/local/bin
 fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
+if [ -d $HOME/Library/Python/2.7/bin ]; then
+    export PATH=$PATH:$HOME/Library/Python/2.7/bin
+fi
 
 function PWD {
     pwd | awk -F\/ '{print $(NF-1),$(NF)}' | sed 's/ /\//'
 }
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
