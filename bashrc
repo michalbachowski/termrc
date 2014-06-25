@@ -43,3 +43,4 @@ function _update_ps1() {
 
 export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 
+#. /Users/mbachows/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
