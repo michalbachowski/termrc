@@ -6,7 +6,8 @@ fi
 
 # Put your local functions and aliases here
 export TERM=xterm-256color
-export PSQL_EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/vim
+export PSQL_EDITOR=$EDITOR
 
 if [ -d /usr/local/bin ]; then
     export PATH=$PATH":/usr/local/bin"
