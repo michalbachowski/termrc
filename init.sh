@@ -14,7 +14,7 @@ for dotfile in `ls -1 dotfiles/`; do
     fi
 
     echo "    Creating symlink ~/.$dotfile";
-    ln -s ./dotfiles/$dotfile ~/.$dotfile
+    ln -s `pwd`/dotfiles/$dotfile ~/.$dotfile
 
     echo "   Done.";
 done;
