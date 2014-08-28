@@ -1,25 +1,22 @@
 #!/bin/bash
-if [ -f ~/.bashrc ]; then
-    rm ~/.bashrc
-fi
-ln -s ~/.termrc/bashrc ~/.bashrc
 
-if [ -f ~/.bash_profile ]; then
-    rm ~/.bash_profile
-fi
-ln -s ~/.termrc/bash_profile ~/.bash_profile
+mkdir "backup";
 
-if [ -f ~/.bash_aliases ]; then
-    rm ~/.bash_aliases
-fi
-ln -s ~/.termrc/bash_aliases ~/.bash_aliases
+for dotfile in `ls -1 dotfiles/`; do
+    echo "Installing $dotfile";
 
-if [ -f ~/.screenrc ]; then
-    rm ~/.screenrc
-fi
-ln -s ~/.termrc/screenrc ~/.screenrc
+    if [ -e ~/test/".$dotfile" ]; then
+        echo "    Backing up $dotfile into backup/$dotfile";
+        mv ~/test/.$dotfile ./backup/
+    elif [ -h ~/test/".$dotfile" ]; then
+        echo "    Removing symlink ~/test/.$dotfile"
+        rm ~/test/.$dotfile
+    fi
 
-if [ -f ~/.tmux.conf ]; then
-    rm ~/.tmux.conf
-fi
-ln -s ~/.termrc/tmux.conf ~/.tmux.conf
+    echo "    Creating symlink ~/test/.$dotfile";
+    ln -s ./dotfiles/$dotfile ~/test/.$dotfile
+
+    echo "   Done.";
+done;
+
+echo "Done";

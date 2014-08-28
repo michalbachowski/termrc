@@ -1,0 +1,10 @@
+[color]
+	ui = true
+[user]
+	email = michal@bachowski.pl
+	name = Michał Bachowski
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
