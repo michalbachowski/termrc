@@ -1,10 +1,4 @@
 alias ls="ls -G"
-alias sql="sql2 --key ~/query2.keyfile.readonly -q"
-alias sqlnetmgmt="sql2 netmgmt.dev.query.akadns.net"
-
-alias p4init='echo "P4CLIENT=mbachows_akamac_$(basename `pwd`)" > .perforce && p4 client'
-alias p4usa='export P4PORT="rsh:crackpipe ssh -2 -a -c blowfish -l p4ssh -q -x perforce.akamai.com /bin/true"'
-alias p4munich='export P4PORT="rsh:ssh -2 -a -l p4ssh -q -x p4p.munich.corp.akamai.com /bin/true"'
 
 alias sshkeys='for d in `find ~/.ssh/* -type d`; do ssh-add -t16h `find $d -type f -not -name "*.pub" -exec stat -f "%m {}" {} \; | sort -n | tail -1 | cut -f2- -d" "`; done'
 alias genkeys='for key_type in internal external deployed; do
@@ -15,25 +9,5 @@ alias genkeys='for key_type in internal external deployed; do
     echo -e "\n\nCopying new key to akabox:\n";
     scp ~/.ssh/${key_type}/${dt} akabox:~/.ssh/${key_type}/;
 done'
-
-alias ssh="TERM=screen ssh"
-alias gwsh="TERM=screen gwsh"
-
-alias fwd_start="ssh -f akabox -L 8888:localhost:8888 -N"
-#alias fwd="python3.4 /Users/mbachows/workspaces/sandbox/mbachows/cmdproxy/client.py"
-
-alias p4df="p4 diff -du "
-alias p4de="p4 describe -du "
-alias p4port="echo \$P4PORT"
-
-alias backup="rsync -a /Users/mbachows/backup/ /Volumes/Untitled/"
-
-alias psql="psql -hlocalhost "
-alias mnsql="psql -Uakamai mapnocc"
-
-alias mcprodmachines="echo -n 72.247.36.55 72.247.36.102 72.247.36.103 72.247.36.108 72.246.50.13 72.246.50.14 72.246.50.15 72.246.50.16 72.246.96.37 72.246.96.36 72.246.96.79 72.246.96.80"
-
-alias mcprod="gwsh root@mapnocc.akamai.com"
-i=0; for m in `mcprodmachines`; do i=$((i+1)); alias mcprod$i="gwsh root@$m"; done
 
 alias rundocker="boot2docker start; export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375"
