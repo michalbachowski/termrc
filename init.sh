@@ -19,4 +19,7 @@ for dotfile in `ls -1 dotfiles/`; do
     echo "   Done.";
 done;
 
+# new version of resty
+curl -L http://github.com/micha/resty/raw/master/resty > ~/.resty
+
 echo "Done";
