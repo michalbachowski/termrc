@@ -66,4 +66,4 @@ if [ -f ~/apps/warp/warp  ]; then
     alias gwarp="SSH=gwsh warp"
 fi;
 
-source ~/.resty
+source ~/.restyrc

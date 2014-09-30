@@ -20,6 +20,7 @@ for dotfile in `ls -1 dotfiles/`; do
 done;
 
 # new version of resty
-curl -L http://github.com/micha/resty/raw/master/resty > ~/.resty
+echo "Initializing ~/.restyrc with current version"
+curl -L http://github.com/micha/resty/raw/master/resty > ~/.restyrc
 
 echo "Done";
