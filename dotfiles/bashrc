@@ -29,6 +29,7 @@ fi
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/apps
+export VIRTUALENVWRAPPER_PYTHON=python
 source /usr/local/bin/virtualenvwrapper.sh
 
 source ~/.bash_aliases
