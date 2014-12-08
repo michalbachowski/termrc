@@ -11,3 +11,7 @@ alias genkeys='for key_type in internal external deployed; do
 done'
 
 alias rundocker="boot2docker start; export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375"
+
+if [ -f ~/.bash_aliases.local ]; then
+	. ~/.bash_aliases.local
+fi
