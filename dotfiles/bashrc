@@ -29,7 +29,14 @@ fi
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/apps
-export VIRTUALENVWRAPPER_PYTHON=python
+
+if [ -f /usr/local/bin/python ]; then
+    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+else
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+fi
+
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--system-site-packages'
 source /usr/local/bin/virtualenvwrapper.sh
 
 source ~/.bash_aliases
