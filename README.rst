@@ -7,7 +7,7 @@ my repository of default terminal-related config files
 Installation
 ------------
 
-Simply clone vimper repository somewhere and run::
+Simply clone repository somewhere and run::
 
     $ /bin/bash init.sh
 
