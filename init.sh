@@ -3,11 +3,12 @@
 mkdir "backup";
 
 for dotfile in `ls -1 dotfiles/`; do
-    echo "Installing $dotfile";
+    echo "Installing $dotfile"
 
     if [ -e ~/".$dotfile" ]; then
-        echo "    Backing up $dotfile into backup/$dotfile";
-        mv ~/.$dotfile ./backup/
+        echo "    Backing up $dotfile into backup/$dotfile"
+        cp $(readlink ~/.$dotfile) ./backup/$dotfile
+        rm ~/.$dotfile
     elif [ -h ~/".$dotfile" ]; then
         echo "    Removing symlink ~/.$dotfile"
         rm ~/.$dotfile
@@ -16,11 +17,11 @@ for dotfile in `ls -1 dotfiles/`; do
     echo "    Creating symlink ~/.$dotfile";
     ln -s `pwd`/dotfiles/$dotfile ~/.$dotfile
 
-    echo "   Done.";
-done;
+    echo "   Done."
+done
 
 # new version of resty
 echo "Initializing ~/.restyrc with current version"
 curl -L http://github.com/micha/resty/raw/master/resty > ~/.restyrc
 
-echo "Done";
+echo "Done"
