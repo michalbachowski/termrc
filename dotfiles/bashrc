@@ -5,7 +5,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 if [ -f ~/.sensible.bash ]; then
-    . sensible.bash
+    . ~/.sensible.bash
 fi
 
 # Put your local functions and aliases here
