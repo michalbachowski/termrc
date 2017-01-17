@@ -31,21 +31,25 @@ if command -v brew >/dev/null 2>&1 && [ -f `brew --prefix`/etc/bash_completion ]
     source `brew --prefix`/etc/bash_completion
 fi
 
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/apps
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/apps
+    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--system-site-packages'
 
-if [ -f /usr/local/bin/python ]; then
-    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-else
-    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-fi
-
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--system-site-packages'
-source /usr/local/bin/virtualenvwrapper.sh
+    if [ -f /usr/local/bin/python ]; then
+        export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+    else
+        export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+    fi
+    source /usr/local/bin/virtualenvwrapper.sh
+fi;
 
 source ~/.bash_aliases
 
 # PROMPT
+if [ -f ~/.git-prompt.sh ]; then
+    source ~/.git-prompt.sh
+fi;
 
 GIT_PS1_SHOWDIRTYSTATE=true
 
@@ -64,7 +68,7 @@ function __venv() {
 }
 
 function _update_ps1() {
-    export PS1="\[\e[37m\],-\[\e[0m\]\[\e[37m\][\t]\[\e[0m\]\[\e[01;33m\] \u\[\e[31m\]@\[\e[01;03;30m\]\h\[\e[0;01;32m\]:\[\e[0m\]\w\033[33m\]\$(__venv)\$(__git_ps1)\[\033[00m\]\n\[\e[37m\]'-\[\e[0m\]\[\e[01;32m\](\[\e[01;33m\]\#\[\e[01;32m\])\[\e[01;31m\]>\[\e[0m\]\$"
+    export PS1="\[\e[37m\],-\[\e[0m\]\[\e[37m\][\t]\[\e[0m\]\[\e[01;33m\] \u\[\e[31m\]@\[\e[01;03;34m\]\h\[\e[0;01;32m\]:\[\e[0m\]\w\033[33m\]\$(__venv)\$(__git_ps1)\[\033[00m\]\n\[\e[37m\]'-\[\e[0m\]\[\e[01;32m\](\[\e[01;33m\]\#\[\e[01;32m\])\[\e[01;31m\]>\[\e[0m\]\$"
 }
 
 export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
