@@ -1,5 +1,7 @@
 [color]
 	ui = true
+[core]
+    editor = vim
 [user]
 	email = michal@bachowski.pl
 	name = Michał Bachowski
