@@ -10,6 +10,7 @@ alias genkeys='for key_type in `find ~/.ssh/* -type d`; do
 done'
 
 alias rundocker="boot2docker start; export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375"
+alias gitpresquash='git reset --soft $(git merge-base HEAD master)'
 
 if [ -f ~/.bash_aliases.local ]; then
 	. ~/.bash_aliases.local
