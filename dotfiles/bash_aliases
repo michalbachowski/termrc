@@ -6,7 +6,8 @@ alias genkeys='for key_type in `find ~/.ssh/* -type d`; do
     dt=`date +%Y_%m_%d`
     filenamecore=`whoami`/${dirname}-${dt};
     echo -e "\n***\nGenerating key ${filenamecore}:\n";
-    ssh-keygen -t rsa -b 4096 -C "${filenamecore}" -f ~/.ssh/${dirname}/${dt};
+    ssh-keygen -t rsa -b 4096 -C "${filenamecore}" -f ~/.ssh/${dirname}/${dt} && \
+    ssh-keygen -l -E md5 -f ~/.ssh/${dirname}/${dt};
 done'
 
 alias rundocker="boot2docker start; export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375"
