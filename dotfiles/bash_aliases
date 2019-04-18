@@ -1,14 +1,13 @@
 alias ls="ls -G"
 
 alias sshkeys='for d in `find ~/.ssh/* -type d`; do ssh-add -t16h `find $d -type f -not -name "*.pub" -exec stat -f "%m {}" {} \; | sort -n | tail -1 | cut -f2- -d" "`; done'
-alias genkeys='for key_type in `find ~/.ssh/* -type d`; do
-    dirname=`basename ${key_type}`;
-    dt=`date +%Y_%m_%d`
-    filenamecore=`whoami`/${dirname}-${dt};
+alias genkeys='for key_type in $(find ~/.ssh/* -type d); do
+    dirname=$(basename ${key_type});
+    dt=$(date +%Y_%m_%d);
+    filenamecore="$(whoami)/${dirname}-${dt}";
     echo -e "\n***\nGenerating key ${filenamecore}:\n";
-    ssh-keygen -t rsa -b 4096 -C "${filenamecore}" -f ~/.ssh/${dirname}/${dt} && \
-    ssh-keygen -l -E md5 -f ~/.ssh/${dirname}/${dt};
-done'
+    ssh-keygen -t rsa -b 4096 -C "${filenamecore}" -f ~/.ssh/${dirname}/${dt} && ssh-keygen -l -E md5 -f ~/.ssh/${dirname}/${dt};
+done;'
 
 alias rundocker="boot2docker start; export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375"
 alias gitpresquash='git reset --soft $(git merge-base HEAD master)'

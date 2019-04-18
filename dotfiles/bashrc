@@ -33,7 +33,7 @@ fi
 
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=$HOME/.virtualenvs
-    export PROJECT_HOME=$HOME/apps
+    export PROJECT_HOME=$HOME/workspaces
     export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--system-site-packages'
 
     if [ -f /usr/local/bin/python ]; then

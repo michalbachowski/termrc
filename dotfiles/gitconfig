@@ -3,8 +3,8 @@
 [core]
     editor = vim
 [user]
-	email = michal@bachowski.pl
-	name = Michał Bachowski
+	email = mbachows@akamai.com
+	name = Michal Bachowski
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
